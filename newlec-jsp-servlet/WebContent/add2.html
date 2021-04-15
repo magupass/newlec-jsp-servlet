@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+        const add_textbox = () => {
+            const box = document.getElementById("box");
+            const newP = document.createElement('p');
+            newP.innerHTML = "<input type='text' name='num'> <input type='button' value='삭제' onclick='remove(this)'>";
+            box.appendChild(newP);
+        }
+        const remove = (obj) => {
+            document.getElementById('box').removeChild(obj.parentNode);
+        }
+    </script>
+</head>
+<body>
+
+	<form action="add2" method="post">
+		<div id="box">
+			<input type="text" name="num"><br />
+			<input type="text" name="num"><br />
+			<input type="text" name="num"><br />
+			<input type="text" name="num">
+		</div>
+		<div>
+			<input type="submit" name="operator" value="덧셈">
+			<input type="submit" name="operator" value="뺄셈">
+		</div>
+		<div>
+			<input type="button" value="추가" onclick="add_textbox()">
+		</div>
+		
+	</form>
+</body>
+</html>

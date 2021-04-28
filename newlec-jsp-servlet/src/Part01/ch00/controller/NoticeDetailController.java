@@ -62,6 +62,8 @@ public class NoticeDetailController extends HttpServlet {
 			 * request.setAttribute("content", content);
 			 */
 			
+			System.out.println(notice.toString());
+			
 			rs.close();
 		    st.close();
 		    con.close();
@@ -74,7 +76,7 @@ public class NoticeDetailController extends HttpServlet {
 		}
 		
 		//forward
-		request.getRequestDispatcher("/notice/detail.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp").forward(request, response);
 		
 	}
 }

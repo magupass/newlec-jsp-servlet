@@ -22,12 +22,15 @@ public class NoticeListController extends HttpServlet {
 		
 		List<Notice> list = new ArrayList<>();
 		
-		String url = "jdbc:oracle:thin:@203.251.151.149:1521:HISTMA";
-		String sql = "select * from z_notice";
+		//String url = "jdbc:oracle:thin:@203.251.151.149:1521:HISTMA";
+		//String sql = "select * from z_notice where id = ?";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String sql = "select * from newlec_notice";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "masm","hi$tmasm");
+			//Connection con = DriverManager.getConnection(url, "masm","hi$tmasm");
+			Connection con = DriverManager.getConnection(url, "scott","tiger");
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			

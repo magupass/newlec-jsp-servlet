@@ -24,12 +24,15 @@ public class NoticeDetailController extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 
 
-		String url = "jdbc:oracle:thin:@203.251.151.149:1521:HISTMA";
-		String sql = "select * from z_notice where id = ?";
+		//String url = "jdbc:oracle:thin:@203.251.151.149:1521:HISTMA";
+		//String sql = "select * from z_notice where id = ?";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String sql = "select * from newlec_notice where id = ?";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "masm","hi$tmasm");
+			//Connection con = DriverManager.getConnection(url, "masm","hi$tmasm");
+			Connection con = DriverManager.getConnection(url, "scott","tiger");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, id);
 			ResultSet rs = st.executeQuery();
@@ -43,7 +46,7 @@ public class NoticeDetailController extends HttpServlet {
 			String files = rs.getString("FILES");
 			String content = rs.getString("CONTENT");
 			
-			Notice notice = new Notice(
+			Notice notice = new Notice( 
 					id, 
 					title,
 					writerId,
